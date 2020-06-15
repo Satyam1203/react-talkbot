@@ -17,6 +17,7 @@ const Container = styled.div`
     height: 600px;
     border: 2px solid green;
     border-radius: 50px;
+    overflow: hidden;
 `;
 
 const messages = [
@@ -35,7 +36,7 @@ function TalkBox() {
         if(showMessage===messages.length) return;
         setTimeout(()=>{
             setMoreMessage((lastVal) => lastVal+1);
-        },1000);
+        },1600);
     });
     return (
         <Container>
