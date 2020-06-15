@@ -1,0 +1,43 @@
+import React from 'react';
+import styled from 'styled-components';
+import {Message} from './Message';
+
+const Container = styled.div`
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    flex-direction:column;
+    // background-image: linear-gradient(to top, #fdcbf1 0%, #fdcbf1 1%, #e6dee9 100%);
+    // background-image: linear-gradient( -45deg, #a8edea 0%, #fed6e3 100%);
+    background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    width:400px;
+    min-width:300px;
+    margin: auto;
+    padding: 0.5rem;
+    height: 600px;
+    border: 2px solid green;
+    border-radius: 50px;
+`;
+
+const messages = [
+    "Where can I visulaize sorting algorithms?",
+    "I'm also looking for resources",
+    "Hey! I just found one.",
+    "Share it with me",
+    "Visit https://sorting-visualization.now.sh",
+    "Thanks dude!"
+]
+
+function TalkBox() {
+    return (
+        <Container>
+            {
+                messages.map((message, i) => (
+                    <Message user={i%2}>{message}</Message>
+                ))
+            }
+        </Container>
+    )
+}
+
+export default TalkBox
