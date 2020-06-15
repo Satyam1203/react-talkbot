@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import styled from 'styled-components';
 import {Message} from './Message';
 
@@ -29,12 +29,21 @@ const messages = [
 ]
 
 function TalkBox() {
+    const [showMessage, setMoreMessage] = useState(0);
+
+    useEffect(()=>{
+        if(showMessage===messages.length) return;
+        setTimeout(()=>{
+            setMoreMessage((lastVal) => lastVal+1);
+        },1000);
+    });
     return (
         <Container>
             {
-                messages.map((message, i) => (
-                    <Message user={i%2}>{message}</Message>
-                ))
+                messages.map((message, i) => {
+                    if(i<showMessage) return <Message key={i} user={i%2}>{message}</Message>
+                    return null;
+                })
             }
         </Container>
     )
