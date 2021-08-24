@@ -1,9 +1,24 @@
 # React TalkBot
 
-### `npm start`
+Convey your message to your users through displaying a bautiful animation
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Installation
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+```
+$ npm i react-talkbot
+```
+
+## Usage
+
+```
+    import { TalkBox } from 'react-talkbot';
+
+    const App = () => {
+        return (
+            <div>
+                // some code here
+                <TalkBox />
+            </div>
+        )
+    }
+```
