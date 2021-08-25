@@ -13,7 +13,7 @@ const MsgDiv = styled.div`
   border-radius: 10px;
 `;
 
-function Message({ children, user }) {
+function Message({ children, user, avatar, msgWrapperStyle }) {
   return (
     <>
       {user ? (
@@ -22,9 +22,9 @@ function Message({ children, user }) {
           animate={{ x: "0%", rotate: 0, scale: 1 }}
           transition={{ default: { duration: 0.7 } }}
         >
-          <MsgDiv>{children}</MsgDiv>
+          <MsgDiv style={msgWrapperStyle}>{children}</MsgDiv>
           <span style={{ fontSize: "3rem" }} role="img" aria-label="avatar">
-            🧑🏻
+            {avatar}
           </span>
         </motion.div>
       ) : (
@@ -34,9 +34,11 @@ function Message({ children, user }) {
           transition={{ default: { duration: 0.7 } }}
         >
           <span style={{ fontSize: "3rem" }} role="img" aria-label="avatar">
-            👨🏻‍💻
+            {avatar}
           </span>
-          <MsgDiv style={{ backgroundColor: "lightgreen" }}>{children}</MsgDiv>
+          <MsgDiv style={{ backgroundColor: "lightgreen", ...msgWrapperStyle }}>
+            {children}
+          </MsgDiv>
         </motion.div>
       )}
     </>

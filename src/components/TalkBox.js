@@ -15,12 +15,12 @@ const Container = styled.div`
   margin: auto;
   padding: 0.5rem;
   height: 600px;
-  border: 2px solid green;
+  border: 2px solid gainsboro;
   border-radius: 50px;
   overflow: hidden;
 `;
 
-const messages = [
+const msgDemo = [
   {
     sent: true,
     msg: "Where can I visulaize sorting algorithms?",
@@ -51,8 +51,11 @@ const messages = [
   },
 ];
 
-function TalkBox() {
+function TalkBox({ containerStyle, msgWrapperStyle, ...props }) {
   const [showMessage, setMoreMessage] = useState(0);
+  const messages = props.messages ?? msgDemo;
+  const senderAvatar = props.senderAvatar ?? "🧑🏻";
+  const receiverAvatar = props.receiverAvatar ?? "👨🏻‍💻";
 
   useEffect(() => {
     if (showMessage === messages.length) return;
@@ -60,12 +63,18 @@ function TalkBox() {
       setMoreMessage((lastVal) => lastVal + 1);
     }, 1600);
   });
+
   return (
-    <Container height={messages.length * 100}>
+    <Container height={messages.length * 100} style={containerStyle}>
       {messages.map((item, i) => {
         if (i < showMessage)
           return (
-            <Message key={i} user={item.sent}>
+            <Message
+              key={i}
+              user={item.sent}
+              msgWrapperStyle={msgWrapperStyle}
+              avatar={item.sent ? senderAvatar : receiverAvatar}
+            >
               {item.msg}
             </Message>
           );

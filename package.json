@@ -1,6 +1,6 @@
 {
   "name": "react-talkbot",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
     "framer-motion": "^1.11.0",
