@@ -51,7 +51,13 @@ const msgDemo = [
   },
 ];
 
-function TalkBox({ containerStyle, msgWrapperStyle, ...props }) {
+const TalkBox = ({
+  containerStyle,
+  msgWrapperStyle,
+  sentMsgWrapperStyle,
+  receivedMsgWrapperStyle,
+  ...props
+}) => {
   const [showMessage, setMoreMessage] = useState(0);
   const messages = props.messages ?? msgDemo;
   const senderAvatar = props.senderAvatar ?? "🧑🏻";
@@ -73,6 +79,8 @@ function TalkBox({ containerStyle, msgWrapperStyle, ...props }) {
               key={i}
               user={item.sent}
               msgWrapperStyle={msgWrapperStyle}
+              sentMsgWrapperStyle={sentMsgWrapperStyle}
+              receivedMsgWrapperStyle={receivedMsgWrapperStyle}
               avatar={item.sent ? senderAvatar : receiverAvatar}
             >
               {item.msg}
@@ -82,6 +90,6 @@ function TalkBox({ containerStyle, msgWrapperStyle, ...props }) {
       })}
     </Container>
   );
-}
+};
 
 export default TalkBox;

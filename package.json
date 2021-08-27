@@ -1,6 +1,6 @@
 {
   "name": "react-talkbot",
-  "version": "0.1.10",
+  "version": "0.1.13",
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
     "framer-motion": "^1.11.0",
@@ -25,6 +25,12 @@
   "files": [
     "dist",
     "README.md"
+  ],
+  "keywords": [
+    "react",
+    "talkbot",
+    "chatbot",
+    "message"
   ],
   "devDependencies": {
     "@babel/cli": "^7.14.8",
