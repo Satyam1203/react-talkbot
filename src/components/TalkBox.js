@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+import HTMLReactParser from "html-react-parser";
+
 import { Message } from "./Message";
 
 const Container = styled.div`
@@ -14,7 +16,7 @@ const Container = styled.div`
   min-width: 300px;
   margin: auto;
   padding: 0.5rem;
-  height: 600px;
+  height: 625px;
   border: 2px solid gainsboro;
   border-radius: 50px;
   overflow: hidden;
@@ -22,32 +24,33 @@ const Container = styled.div`
 
 const msgDemo = [
   {
-    sent: true,
-    msg: "Where can I visulaize sorting algorithms?",
-  },
-  {
     sent: false,
-    msg: "I'm also looking for resources",
+    msg: "Hi, How can I build an impressive resume?",
   },
   {
     sent: true,
-    msg: "Hey! I just found one.",
+    msg: "Hello, Do you have a good Github Profile?",
   },
   {
     sent: false,
-    msg: "Share it with me",
+    msg: "Yeah, I do have one. All of my projects are on Github.",
   },
   {
     sent: true,
-    msg: "Visit https://sorting-visualization.now.sh",
+    msg:
+      "Cool, You can head over to <a href='https://resume-github.vercel.app' style='color: #74c'>https://resume-github.vercel.app</a> and generate a resume with your username.",
   },
   {
     sent: false,
-    msg: "Thanks dude!",
+    msg: "Ohh, wow! I'll check it out.",
+  },
+  {
+    sent: true,
+    msg: "and the best part is you can customize it too.",
   },
   {
     sent: false,
-    msg: "See you soon :)",
+    msg: "Great, Thanks buddy :)",
   },
 ];
 
@@ -83,7 +86,7 @@ const TalkBox = ({
               receivedMsgWrapperStyle={receivedMsgWrapperStyle}
               avatar={item.sent ? senderAvatar : receiverAvatar}
             >
-              {item.msg}
+              {HTMLReactParser(item.msg)}
             </Message>
           );
         return null;

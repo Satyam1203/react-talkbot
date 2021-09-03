@@ -11,6 +11,8 @@ var _react = _interopRequireWildcard(require("react"));
 
 var _styledComponents = _interopRequireDefault(require("styled-components"));
 
+var _htmlReactParser = _interopRequireDefault(require("html-react-parser"));
+
 var _Message = require("./Message");
 
 const _excluded = ["containerStyle", "msgWrapperStyle", "sentMsgWrapperStyle", "receivedMsgWrapperStyle"];
@@ -29,29 +31,29 @@ function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) r
 
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
-const Container = _styledComponents.default.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  flex-direction: column;\n  // background-image: linear-gradient(to top, #fdcbf1 0%, #fdcbf1 1%, #e6dee9 100%);\n  // background-image: linear-gradient( -45deg, #a8edea 0%, #fed6e3 100%);\n  background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);\n  width: 400px;\n  min-width: 300px;\n  margin: auto;\n  padding: 0.5rem;\n  height: 600px;\n  border: 2px solid gainsboro;\n  border-radius: 50px;\n  overflow: hidden;\n"])));
+const Container = _styledComponents.default.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  flex-direction: column;\n  // background-image: linear-gradient(to top, #fdcbf1 0%, #fdcbf1 1%, #e6dee9 100%);\n  // background-image: linear-gradient( -45deg, #a8edea 0%, #fed6e3 100%);\n  background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);\n  width: 400px;\n  min-width: 300px;\n  margin: auto;\n  padding: 0.5rem;\n  height: 625px;\n  border: 2px solid gainsboro;\n  border-radius: 50px;\n  overflow: hidden;\n"])));
 
 const msgDemo = [{
-  sent: true,
-  msg: "Where can I visulaize sorting algorithms?"
-}, {
   sent: false,
-  msg: "I'm also looking for resources"
+  msg: "Hi, How can I build an impressive resume?"
 }, {
   sent: true,
-  msg: "Hey! I just found one."
+  msg: "Hello, Do you have a good Github Profile?"
 }, {
   sent: false,
-  msg: "Share it with me"
+  msg: "Yeah, I do have one. All of my projects are on Github."
 }, {
   sent: true,
-  msg: "Visit https://sorting-visualization.now.sh"
+  msg: "Cool, You can head over to <a href='https://resume-github.vercel.app' style='color: #74c'>https://resume-github.vercel.app</a> and generate a resume with your username."
 }, {
   sent: false,
-  msg: "Thanks dude!"
+  msg: "Ohh, wow! I'll check it out."
+}, {
+  sent: true,
+  msg: "and the best part is you can customize it too."
 }, {
   sent: false,
-  msg: "See you soon :)"
+  msg: "Great, Thanks buddy :)"
 }];
 
 const TalkBox = _ref => {
@@ -86,7 +88,7 @@ const TalkBox = _ref => {
       sentMsgWrapperStyle: sentMsgWrapperStyle,
       receivedMsgWrapperStyle: receivedMsgWrapperStyle,
       avatar: item.sent ? senderAvatar : receiverAvatar
-    }, item.msg);
+    }, (0, _htmlReactParser.default)(item.msg));
     return null;
   }));
 };
