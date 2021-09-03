@@ -4,6 +4,8 @@
 
 Convey your message to your users through displaying a beautiful animation. Visit the repo [here](https://github.com/Satyam1203/react-talkbot).
 
+<img src="./talkbot.gif" alt="Working Demo" />
+
 ## Installation
 
 ```
